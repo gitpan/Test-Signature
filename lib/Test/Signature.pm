@@ -38,14 +38,13 @@ errors during transmission or packaging.
 
 =cut
 
-use 5.006;
 use strict;
-use warnings;
-
-use base 'Exporter';
-our $VERSION = '1.03';
-our @EXPORT = qw( signature_ok );
-our @EXPORT_OK = qw( signature_force_ok );
+use Exporter;
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK );
+$VERSION = '1.04';
+@ISA = qw( Exporter );
+@EXPORT = qw( signature_ok );
+@EXPORT_OK = qw( signature_force_ok );
 
 use Test::Builder;
 
@@ -80,9 +79,34 @@ sub signature_ok
     my $name  = shift || 'Valid signature';
     my $force = shift || 0;
     SKIP: {
-	if (eval { require Socket; Socket::inet_aton('pgp.mit.edu') } and
-	    eval { require Module::Signature; 1 }
-	)
+	if ( !-s 'SIGNATURE' )
+	{
+	    $test->skip( "No SIGNATURE file found." );
+	}
+	elsif ( !eval { require Socket; Socket::inet_aton('pgp.mit.edu') })
+	{
+	    $test->skip( "Cannot connect to the keyserver." );
+	}
+	elsif ( !eval { require Module::Signature; 1 } )
+	{
+	    if ($force)
+	    {
+		$test->ok(0, $name);
+		$test->diag(<<"EOF");
+You need Module::Signature for this distribution.
+With that, you can have the contents of the archive verified.
+EOF
+	    }
+	    else
+	    {
+		$test->skip( "No Module::Signature installed." );
+		$test->diag(<<"EOF");
+Next time around, consider installing Module::Signature,
+so you can verify the integrity of this distribution.
+EOF
+	    }
+	}
+	else
 	{
 	    $test->diag(<<"EOF");
 
@@ -92,30 +116,6 @@ EOF
 	    $test->ok(
 		Module::Signature::verify() == Module::Signature::SIGNATURE_OK()
 		=> $name);
-	}
-	else
-	{
-	    $name = "No Module::Signature installed";
-	    if ($force)
-	    {
-		$test->ok(0, $name);
-		$test->diag(<<'EOF');
-
-You need Module::Signature for this distribution.
-With that, you can have the contents of the archive verified.
-
-EOF
-	    }
-	    else
-	    {
-		$test->skip($name, 1);
-		$test->diag(<<'EOF');
-
-Next time around, consider installing Module::Signature.
-That way, you can have the contents of the archive verified.
-
-EOF
-	    }
 	}
     }
 }
@@ -182,7 +182,7 @@ complain that you have:
 
 You should note this during normal development testing anyway.
 
-=head2 USE WITH Test::Prereq
+=head2 Use with Test::Prereq
 
 C<Test::Prereq> tends to get a bit particular about modules.
 If you're using the I<force> option with C<Test::Signature> then
@@ -194,16 +194,16 @@ If you are using C<ExtUtils::MakeMaker> you should have a line like the
 following in your F<Makefile.PL>:
 
     'PREREQ_PM' => {
-	'Test::Signature'   => '1.02',
-	'Module::Signature' => '0.16',
+	'Test::Signature'   => '1.04',
+	'Module::Signature' => '0.22',
 	'Test::More'        => '0.47',
     },
 
 If using C<Module::Build>, your F<Build.PL> should have:
 
     build_requires => {
-	'Test::Signature'   => '1.02',
-	'Module::Signature' => '0.16',
+	'Test::Signature'   => '1.04',
+	'Module::Signature' => '0.22',
 	'Test::More'        => '0.47',
     },
 
@@ -215,14 +215,14 @@ C<ExtUtils::MakeMaker>.
 
     #!/usr/bin/perl -w
     use strict;
-    use Module::Build 0.11;
+    use Module::Build 0.18;
 
     my @extra_build;
 
     eval { require Module::Signature };
     if (!$@ or $Test::Prereq::VERSION)
     {
-	push @extra_build, "Module::Signature" => '1.13'
+	push @extra_build, "Module::Signature" => '0.22'
     }
 
     my $m = Module::Build->new(
@@ -236,9 +236,9 @@ C<ExtUtils::MakeMaker>.
 	},
 	build_requires => {
 	    'Test::More'          => 0.47,
-	    'Test::Prereq'        => 0.16,
-	    'Test::Prereq::Build' => 0.03,
-	    'Test::Signature'     => 1.02,
+	    'Test::Prereq'        => 0.19,
+	    'Test::Prereq::Build' => 0.04,
+	    'Test::Signature'     => 1.04,
 	    @extra_build,
 	},
     );
@@ -247,6 +247,33 @@ C<ExtUtils::MakeMaker>.
 
 If you have any questions on using this module with C<Test::Prereq>,
 just email me (address below).
+
+=head2 Use with Module::Install
+
+C<Module::Install> is a funky new module to assist in the bundling of
+build prerequisite modules in packages. Well, among other things.
+
+C<Test::Signature> is a perfect candidate for such a module. As it's a
+module aimed purely at those writing modules rather than those using
+them.
+
+Here's a good way to use it:
+
+Make a test file (say, F<t/00sig.t>) that contains the following:
+
+    use lib 'inc';
+    use Test::More tests => 1;
+    use Test::Signature;
+    signature_ok();
+
+In your F<Makefile.PL> (or F<Build.PL> if appropriate) add:
+
+    include( 'Test::Signature' );
+
+And that's it! You don't have to specify it as a prerequisite or
+anything like that because C<Module::Install> will include it in your
+distribution. And you don't have to worry about size because
+C<Module::Install> strips out all this waffling POD.
 
 =head1 THANKS
 
@@ -266,7 +293,7 @@ or via the web interface at L<http://rt.cpan.org>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright E<copy> Iain Truskett, 2002. All rights reserved.
+Copyright E<copy> Iain Truskett, 2002-2003. All rights reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
@@ -278,5 +305,9 @@ Iain Truskett <spoon@cpan.org>
 =head1 SEE ALSO
 
 L<perl>, L<Module::Signature>, L<Test::More>.
+
+L<Module::Build>, L<ExtUtils::Manifest>, L<ExtUtils::MakeMaker>.
+
+L<Test::Prereq>, L<Module::Install>.
 
 =cut

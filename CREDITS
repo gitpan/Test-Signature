@@ -1,4 +1,4 @@
-CREDITS FOR Test::Signature 1.03
+CREDITS FOR Test::Signature 1.04
 
 Arthur Bergman for suggesting the module.
 
@@ -8,6 +8,4 @@ some suggestions.
 Tels suggested testing network connectivity to Autrijus.  Autrijus added
 that to Module::Signature 0.16 and I added it to this module (as of
 1.03).
-
-
 

@@ -1,16 +1,27 @@
-README                          Basic information about this module
-SIGNATURE                       Cryptographic signature of these files
-Changes                         List of changes made in each revision
-INSTALL                         Installation instructions
-TODO                            Things yet to do to the module
-CREDITS                         A list of thanks
-LICENSE                         License and copyright
-Artistic                        The Artistic Licence
-COPYING                         The GNU Public License
-Build.PL                        Script to make/install the module
-Makefile.PL                     Wrapper to call Build.PL
-MANIFEST                        This list of files
-META.yaml                       Module metadata
-lib/Test/Signature.pm           The module
-t/00signature.t                 Test the package is correctly signed
-MANIFEST.SKIP                   Which files to never put in here
+Artistic
+AUTHORS
+ChangeLog
+Changes
+COPYING
+CREDITS
+inc/Module/Install.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Test.pm
+inc/Test/Builder.pm
+inc/Test/More.pm
+inc/YAML.pm
+INSTALL
+lib/Test/Signature.pm
+LICENSE
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+META.yml
+README
+SIGNATURE
+t/00sig.t
+t/99pod.t
+TODO

@@ -1,0 +1,21 @@
+--- #YAML:1.0
+build_requires:
+  File::Find::Rule: 0.10
+  Test::More: 0.47
+conflicts: {}
+distribution_type: module
+license: perl
+name: Test-Signature
+recommends:
+  Module::Signature: 0.22
+  Test::Pod: 0.95
+requires:
+  Test::Builder: 0.17
+version: 1.04
+provides:
+  Test::Signature:
+    file: lib/Test/Signature.pm
+    version: 1.04
+
+
+generated_by: docmaker version 0.89

@@ -1,0 +1,83 @@
+
+ChangeLog generated directly from CVS logs.
+
+Release r1.04:
+  - Changes v1.5
+        - Removing unnecessary files.
+        (iain)
+
+  - lib/Test/Signature.pm v1.10
+        - Minor updates to code; new sections in POD.
+        (iain)
+
+
+Release r1.03:
+  - Changes v1.3
+  - Build.PL v1.4
+        - Updated recommended version of Module::Signature
+        - Recommended Module::Signature programmatically.
+        (iain)
+
+  - lib/Test/Signature.pm v1.9
+  - Build.PL v1.6
+        + 1.03
+        (iain)
+
+  - lib/Test/Signature.pm v1.7
+        - Updated recommended version of Module::Signature
+        (iain)
+
+  - lib/Test/Signature.pm v1.6
+        + Updated version number for Test::Signature and
+          Module::Signature.
+        (iain)
+
+  - lib/Test/Signature.pm v1.8
+  - Changes v1.4
+  - Build.PL v1.5
+        - Updated recommended version of Module::Signature
+        - Checks for network availability. As taken from MS 0.16
+        (iain)
+
+
+Release r1.01:
+  - lib/Test/Signature.pm v1.2
+        + Not using Pod::Simple specific extensions any more.
+        (iain)
+
+  - Build.PL v1.2
+        + Added Test::Builder
+        (iain)
+
+  - lib/Test/Signature.pm v1.1
+  - t/00signature.t v1.1
+  - COPYING v1.1
+  - Changes v1.1
+  - Artistic v1.1
+  - .cvsignore v1.1
+  - MANIFEST v1.1
+  - TODO v1.1
+  - MANIFEST.SKIP v1.1
+  - Makefile.PL v1.1
+  - Build.PL v1.1
+        + Initial revision.
+        (iain)
+
+  - lib/Test/Signature.pm v1.3
+        + Added note about what the module should be used for.
+        (iain)
+
+  - lib/Test/Signature.pm v1.5
+  - Changes v1.2
+  - Build.PL v1.3
+        - Fixed incorrect skip() calling.
+        - Fixed incorrect SKIP blocking.
+        - Documentation nits from Autrijus.
+        - EU::Manifest provides sensible defaults for MANIFEST.SKIP
+        (iain)
+
+  - lib/Test/Signature.pm v1.4
+        + skip rather than ok.
+        (iain)
+
+

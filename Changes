@@ -6,12 +6,22 @@
 # The following versions are available on CPAN:
 
 ---
+version: 1.04
+date:    21 May 2003
+changes:
+    - Code tidied.
+    - Made more independent from the advance technology.
+    - Module::Install stuff mentioned.
+
+---
 version: 1.03
 date:    29 Oct 2002
 changes:
     - Updated recommended version of Module::Signature
     - Checks for network availability. As taken from MS 0.16
 
+# Versions below here are available on BACKPAN
+# http://backpan.cpan.org/authors/id/S/SP/SPOON/
 ---
 version: 1.02
 date:    17 Oct 2002
@@ -19,8 +29,6 @@ changes:
     - Updated recommended version of Module::Signature
     - Recommended Module::Signature programmatically.
 
-# Versions below here are available on BACKPAN
-# http://history.perl.org/backpan/authors/id/S/SP/SPOON/
 ---
 version: 1.01
 date:    13 Oct 2002

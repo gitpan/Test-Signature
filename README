@@ -1,7 +1,6 @@
 Test::Signature
 
-   Test::Signature verifies that the Module::Signature generated
-   signature of a module is correct.
+   automate SIGNATURE testing.
 
 For installation details, see INSTALL.
 
@@ -9,9 +8,10 @@ For usage, see the doco. Either use perldoc or view it
 on the web at:
     <http://search.cpan.org/author/SPOON/Test-Signature/>
 
-Changes for 1.03 (29 Oct 2002)
-   - Updated recommended version of Module::Signature
-   - Checks for network availability. As taken from MS 0.16
+Changes for 1.04 (21 May 2003)
+   - Code tidied.
+   - Made more independent from the advance technology.
+   - Module::Install stuff mentioned.
 
 For a complete list of changes, see the Changes file.
 
