@@ -38,19 +38,19 @@ Test::Signature is distributed as a gzipped tar archive file:
 
     Test-Signature-<version>.tar.gz
 
-where <version> represents the current version number, e.g. 1.02.
+where <version> represents the current version number, e.g. 1.03.
 
 To install the module, unpack the distribution archive to
 create an installation directory.  Something like this:
 
-    tar zxf Test-Signature-1.02.tar.gz
+    tar zxf Test-Signature-1.03.tar.gz
 or
-    gunzip Test-Signature-1.02.tar.gz
-    tar xf Test-Signature-1.02.tar
+    gunzip Test-Signature-1.03.tar.gz
+    tar xf Test-Signature-1.03.tar
 
 You can then 'cd' into the directory created,
 
-    cd Test-Signature-1.02
+    cd Test-Signature-1.03
 
 
 INSTALLING MANUALLY

@@ -43,7 +43,7 @@ use strict;
 use warnings;
 
 use base 'Exporter';
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 our @EXPORT = qw( signature_ok );
 our @EXPORT_OK = qw( signature_force_ok );
 
@@ -80,7 +80,9 @@ sub signature_ok
     my $name  = shift || 'Valid signature';
     my $force = shift || 0;
     SKIP: {
-	if (eval { require Module::Signature; 1 })
+	if (eval { require Socket; Socket::inet_aton('pgp.mit.edu') } and
+	    eval { require Module::Signature; 1 }
+	)
 	{
 	    $test->diag(<<"EOF");
 
@@ -193,7 +195,7 @@ following in your F<Makefile.PL>:
 
     'PREREQ_PM' => {
 	'Test::Signature'   => '1.02',
-	'Module::Signature' => '0.14',
+	'Module::Signature' => '0.16',
 	'Test::More'        => '0.47',
     },
 
@@ -201,7 +203,7 @@ If using C<Module::Build>, your F<Build.PL> should have:
 
     build_requires => {
 	'Test::Signature'   => '1.02',
-	'Module::Signature' => '0.14',
+	'Module::Signature' => '0.16',
 	'Test::More'        => '0.47',
     },
 
@@ -234,7 +236,7 @@ C<ExtUtils::MakeMaker>.
 	},
 	build_requires => {
 	    'Test::More'          => 0.47,
-	    'Test::Prereq'        => 0.15,
+	    'Test::Prereq'        => 0.16,
 	    'Test::Prereq::Build' => 0.03,
 	    'Test::Signature'     => 1.02,
 	    @extra_build,
@@ -252,6 +254,10 @@ Arthur Bergman for suggesting the module.
 
 Autrijus Tang for writing C<Module::Signature>, and making
 some suggestions.
+
+Tels suggested testing network connectivity to Autrijus.  Autrijus added
+that to C<Module::Signature> 0.16 and I added it to this module (as of
+1.03).
 
 =head1 BUGS
 
