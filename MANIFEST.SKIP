@@ -1,0 +1,9 @@
+^Build$
+/CVS/
+^Test-Signature-
+^diffs$
+^CVS/
+^Makefile$
+^_build/
+^blib/
+^.cvsignore$

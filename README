@@ -1,0 +1,19 @@
+Test::Signature
+
+   Test::Signature verifies that the Module::Signature generated
+   signature of a module is correct.
+
+For installation details, see INSTALL.
+
+For usage, see the doco. Either use perldoc or view it
+on the web at:
+    <http://search.cpan.org/author/SPOON/Test-Signature/>
+
+Changes for 1.01 (13 Oct 2002)
+   - Fixed incorrect skip() calling.
+   - Fixed incorrect SKIP blocking.
+   - Documentation nits from Autrijus.
+   - EU::Manifest provides sensible defaults for MANIFEST.SKIP
+
+
+by Iain Truskett.

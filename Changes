@@ -1,0 +1,27 @@
+# Change log for Test::Signature
+
+# All versions are available from http://perl.dellah.org/
+
+
+# The following versions are available on CPAN:
+
+---
+version: 1.01
+date:    13 Oct 2002
+changes:
+    - Fixed incorrect skip() calling.
+    - Fixed incorrect SKIP blocking.
+    - Documentation nits from Autrijus.
+    - EU::Manifest provides sensible defaults for MANIFEST.SKIP
+
+---
+version: 1.00
+date:    12 Oct 2002
+changes:
+    - Initial revision.
+
+
+# As this is the first release there are no versions that
+# are available on BACKPAN and not CPAN. But here's the URL
+# anyway:
+# http://history.perl.org/backpan/authors/id/S/SP/SPOON/
