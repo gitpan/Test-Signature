@@ -41,7 +41,7 @@ errors during transmission or packaging.
 use strict;
 use Exporter;
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK );
-$VERSION = '1.05';
+$VERSION = '1.06';
 @ISA = qw( Exporter );
 @EXPORT = qw( signature_ok );
 @EXPORT_OK = qw( signature_force_ok );
@@ -145,8 +145,10 @@ below.
 
 If you're using C<ExtUtils::MakeMaker>, you should have, at least:
 
+    #defaults
     ^Makefile$
     ^blib/
+    ^blibdirs$
     ^pm_to_blib$
 
 These entries are part of the default set provided by
@@ -274,19 +276,21 @@ that to C<Module::Signature> 0.16 and I added it to this module (as of
 
 =head1 BUGS
 
-Please report bugs at <bug-test-signature@rt.cpan.org>
+Please report bugs at E<lt>bug-test-signature@rt.cpan.orgE<gt>
 or via the web interface at L<http://rt.cpan.org>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright E<copy> Iain Truskett, 2002-2003. All rights reserved.
+Copyright Iain Truskett, 2002-2003. All rights reserved.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Iain Truskett <spoon@cpan.org>
+Iain Truskett E<lt>spoon@cpan.orgE<gt>
+
+Currently maintained by Autrijus Tang E<lt>autrijus@autrijus.orgE<gt>
 
 =head1 SEE ALSO
 

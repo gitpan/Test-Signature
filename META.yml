@@ -1,30 +1,12 @@
---- #YAML:1.0
-distribution_type: module
-name: Test-Signature
-date: 1 Aug 2003
-author: SPOON
-version: 1.05
-license: perl
-
-conflicts: {}
-
-build_requires:
-  Test::More: 0.47
-recommends:
-  File::Find::Rule: 0.11
-  Module::Signature: 0.28
-  Test::Pod: 0.95
+# http://module-build.sourceforge.net/META-spec.html
+#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
+name:         Test-Signature
+version:      1.06
+version_from: lib/Test/Signature.pm
+installdirs:  site
 requires:
-  Test::Builder: 0.17
+    Test::Builder:                 0.17
+    Test::More:                    0.47
 
-private:
-  directory:
-    - t
-
-provides:
-  Test::Signature:
-    file: lib/Test/Signature.pm
-    version: 1.05
-
-dynamic_config: 0
-generated_by: docmaker version 0.91
+distribution_type: module
+generated_by: ExtUtils::MakeMaker version 6.21

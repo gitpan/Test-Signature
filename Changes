@@ -6,6 +6,12 @@
 # The following versions are available on CPAN:
 
 ---
+version: 1.06
+date:    19 Jan 2004
+changes:
+    - Taking over maintainence from Iain.
+
+---
 version: 1.05
 date:    1 Aug 2003
 changes:

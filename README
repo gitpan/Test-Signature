@@ -8,16 +8,14 @@ For installation details, see INSTALL.
 
 For usage, see the doco. Either use perldoc or view it
 on the web at:
-    <http://search.cpan.org/author/SPOON/Test-Signature/>
+    <http://search.cpan.org/dist/Test-Signature/>
 
-Changes for 1.05 (1 Aug 2003)
-   - Fixed misused word.
-   - Refactored forced/non-forced behaviour.
-   - Reorganised tests.
-   - Reworded tests to match Module::Signature.
+Changes for 1.06 (16 Jan 2004)
+   - Taking over maintainence from Iain.
 
 
 For a complete list of changes, see the Changes file.
 
 
 by Iain Truskett.
+Currently maintained by Autrijus Tang.

@@ -1,9 +1,11 @@
+#defaults
 \.sw.$
 \bRCS\b
 \bCVS\b
 ^_build/
 ^Build$
 ^blib/
+^blibdirs$
 ^Makefile$
 ^Test-Signature-
 ^MANIFEST.bak$
