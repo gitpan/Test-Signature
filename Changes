@@ -6,6 +6,15 @@
 # The following versions are available on CPAN:
 
 ---
+version: 1.05
+date:    1 Aug 2003
+changes:
+    - Fixed misused word.
+    - Refactored forced/non-forced behaviour.
+    - Reorganised tests.
+    - Reworded tests to match Module::Signature.
+
+---
 version: 1.04
 date:    21 May 2003
 changes:

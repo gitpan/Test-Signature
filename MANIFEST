@@ -1,18 +1,7 @@
 Artistic
-AUTHORS
 ChangeLog
 Changes
 COPYING
-CREDITS
-inc/Module/Install.pm
-inc/Module/Install/Base.pm
-inc/Module/Install/Include.pm
-inc/Module/Install/Makefile.pm
-inc/Module/Install/Metadata.pm
-inc/Test.pm
-inc/Test/Builder.pm
-inc/Test/More.pm
-inc/YAML.pm
 INSTALL
 lib/Test/Signature.pm
 LICENSE
@@ -24,4 +13,3 @@ README
 SIGNATURE
 t/00sig.t
 t/99pod.t
-TODO

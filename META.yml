@@ -1,21 +1,30 @@
 --- #YAML:1.0
-build_requires:
-  File::Find::Rule: 0.10
-  Test::More: 0.47
-conflicts: {}
 distribution_type: module
-license: perl
 name: Test-Signature
+date: 1 Aug 2003
+author: SPOON
+version: 1.05
+license: perl
+
+conflicts: {}
+
+build_requires:
+  Test::More: 0.47
 recommends:
-  Module::Signature: 0.22
+  File::Find::Rule: 0.11
+  Module::Signature: 0.28
   Test::Pod: 0.95
 requires:
   Test::Builder: 0.17
-version: 1.04
+
+private:
+  directory:
+    - t
+
 provides:
   Test::Signature:
     file: lib/Test/Signature.pm
-    version: 1.04
+    version: 1.05
 
-
-generated_by: docmaker version 0.89
+dynamic_config: 0
+generated_by: docmaker version 0.91

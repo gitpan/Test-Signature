@@ -41,7 +41,7 @@ errors during transmission or packaging.
 use strict;
 use Exporter;
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK );
-$VERSION = '1.04';
+$VERSION = '1.05';
 @ISA = qw( Exporter );
 @EXPORT = qw( signature_ok );
 @EXPORT_OK = qw( signature_force_ok );
@@ -74,45 +74,31 @@ as a failure. The default is C<0> meaning 'no'.
 
 =cut
 
+sub action_skip { $test->skip( $_[0] ) }
+sub action_ok   { $test->ok( 0, $_[0] ) }
+
 sub signature_ok
 {
     my $name  = shift || 'Valid signature';
     my $force = shift || 0;
+    my $action = $force ? \&action_ok : \&action_skip;
     SKIP: {
 	if ( !-s 'SIGNATURE' )
 	{
-	    $test->skip( "No SIGNATURE file found." );
-	}
-	elsif ( !eval { require Socket; Socket::inet_aton('pgp.mit.edu') })
-	{
-	    $test->skip( "Cannot connect to the keyserver." );
+	    $action->( "No SIGNATURE file found." );
 	}
 	elsif ( !eval { require Module::Signature; 1 } )
 	{
-	    if ($force)
-	    {
-		$test->ok(0, $name);
-		$test->diag(<<"EOF");
-You need Module::Signature for this distribution.
-With that, you can have the contents of the archive verified.
-EOF
-	    }
-	    else
-	    {
-		$test->skip( "No Module::Signature installed." );
-		$test->diag(<<"EOF");
-Next time around, consider installing Module::Signature,
-so you can verify the integrity of this distribution.
-EOF
-	    }
+            $action->(
+                "Next time around, consider installing Module::Signature, ".
+                "so you can verify the integrity of this distribution." );
+	}
+	elsif ( !eval { require Socket; Socket::inet_aton('pgp.mit.edu') })
+	{
+	    $action->( "Cannot connect to the keyserver." );
 	}
 	else
 	{
-	    $test->diag(<<"EOF");
-
-Using Module::Signature v$Module::Signature::VERSION
-
-EOF
 	    $test->ok(
 		Module::Signature::verify() == Module::Signature::SIGNATURE_OK()
 		=> $name);
@@ -188,7 +174,7 @@ C<Test::Prereq> tends to get a bit particular about modules.
 If you're using the I<force> option with C<Test::Signature> then
 you will have to specify that you expect C<Module::Signature> as a
 prerequisite. C<Test::Signature> will not have it as a prerequisite
-since that would default the point of having the I<force> variant.
+since that would defeat the point of having the I<force> variant.
 
 If you are using C<ExtUtils::MakeMaker> you should have a line like the
 following in your F<Makefile.PL>:
