@@ -9,4 +9,4 @@ recommends: {}
 requires:
   Test::Builder: 0.17
   perl: 5.6.0
-version: 1.01
+version: 1.02

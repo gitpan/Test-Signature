@@ -5,15 +5,18 @@ use Module::Build 0.11;
 
 my $m = Module::Build->new(
     dist_name => 'Test-Signature',
-    dist_version => '1.01',
+    dist_version => '1.02',
     license => 'perl',
 
     requires => {
-	'Test::Builder'    => '0.17',
-	'perl'             => '5.6.0',
+	'Test::Builder'     => '0.17',
+	'perl'              => '5.6.0',
+    },
+    recommends => {
+	'Module::Signature' => '0.14',
     },
     build_requires => {
-	'Test::More'          => 0.47,
+	'Test::More'        => '0.47',
     },
 
     verbose => 1,

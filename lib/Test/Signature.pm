@@ -43,7 +43,7 @@ use strict;
 use warnings;
 
 use base 'Exporter';
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 our @EXPORT = qw( signature_ok );
 our @EXPORT_OK = qw( signature_force_ok );
 
@@ -192,16 +192,16 @@ If you are using C<ExtUtils::MakeMaker> you should have a line like the
 following in your F<Makefile.PL>:
 
     'PREREQ_PM' => {
-	'Test::Signature'   => '1.01',
-	'Module::Signature' => '0.08',
+	'Test::Signature'   => '1.02',
+	'Module::Signature' => '0.14',
 	'Test::More'        => '0.47',
     },
 
 If using C<Module::Build>, your F<Build.PL> should have:
 
     build_requires => {
-	'Test::Signature'   => '1.01',
-	'Module::Signature' => '0.08',
+	'Test::Signature'   => '1.02',
+	'Module::Signature' => '0.14',
 	'Test::More'        => '0.47',
     },
 
@@ -220,7 +220,7 @@ C<ExtUtils::MakeMaker>.
     eval { require Module::Signature };
     if (!$@ or $Test::Prereq::VERSION)
     {
-	push @extra_build, "Module::Signature" => '0.07'
+	push @extra_build, "Module::Signature" => '1.13'
     }
 
     my $m = Module::Build->new(
@@ -236,7 +236,7 @@ C<ExtUtils::MakeMaker>.
 	    'Test::More'          => 0.47,
 	    'Test::Prereq'        => 0.15,
 	    'Test::Prereq::Build' => 0.03,
-	    'Test::Signature'     => 1.01,
+	    'Test::Signature'     => 1.02,
 	    @extra_build,
 	},
     );

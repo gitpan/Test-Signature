@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.08.
+signed via the Module::Signature module, version 0.14.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -15,24 +15,24 @@ not run its Makefile.PL or Build.PL.
 Hash: SHA1
 
 SHA1 7a95fc8778fbce1f60d222e0d0d1dbb6c649461f Artistic
-SHA1 a53cb5a08087d473dd9bbede506d7c896cf1eaf6 Build.PL
+SHA1 a42fc9739445cf970a2cd51989fe6e684c86e90c Build.PL
 SHA1 6ce8609df1f37761cb9d953fa502f53ba87dbd94 COPYING
-SHA1 f3e40ec537d00971c47eb7160b78409cb1ebeec3 CREDITS
-SHA1 fc219364631b96421ef3885ca07dcdd9307745c6 Changes
-SHA1 fa122eb34cbb39ad958d10078f789bf297ed27e1 INSTALL
-SHA1 3d4d9eeffd6684d7dff1180f8ccd54687978f55d LICENSE
+SHA1 a47de90cb033255654098d3f2f0347414a4fed50 CREDITS
+SHA1 2711c604c189bde94655af966e88d61123c54bdf Changes
+SHA1 0193bf7967c46df2d79c6956a5206e634a0eec25 INSTALL
+SHA1 b26605b9d9a1e6cdc5b5bb6ec8e749a634c88f1e LICENSE
 SHA1 9fd8e15d9036097b36aed018fc8eee5474b7e623 MANIFEST
 SHA1 680e649875dc80de59d8d9fa6201ed9e8486f955 MANIFEST.SKIP
-SHA1 ed2032167ad87b8c70713a3f7d29878a41d7f659 META.yaml
+SHA1 fcae5ccc2e48522656ca9da93a5dc15d4f185a77 META.yaml
 SHA1 b42a665b5b51a19c37bc60259e5f322862a07c22 Makefile.PL
-SHA1 5e3f1c6b6845f82528eda199afe3b44e5f6409fc README
+SHA1 cabe66f1cbdcb26a3c49aeffa979d3fc6d6eb7a6 README
 SHA1 3a5b4f0dec0bd23185e4f17b30d6d8800c86a957 TODO
-SHA1 c88e475ff803f42ccec17f087bb756586bb35da3 lib/Test/Signature.pm
+SHA1 970a95212afab3a29d9f56dc4203a55b978a9418 lib/Test/Signature.pm
 SHA1 cb5b1230a7834ed85bae22b5037c6fb4ac71ae30 t/00signature.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.2.0 (GNU/Linux)
 
-iD8DBQE9qOrNzL8gm6KQWMgRAgN9AJ42nZgfdUuAE5fU8oDS/3iCkbZyRACgkvGC
-k1o/Nj8ZCXsGOI4SVPYvlog=
-=f2Gq
+iD8DBQE9rmCdzL8gm6KQWMgRAg0iAKCBMKZMcdw6AjwxsJbjFM9o3UPUJgCgtefZ
+Jw8P1LxEImRLzSs1cYgYvzU=
+=X2j2
 -----END PGP SIGNATURE-----

@@ -6,6 +6,15 @@
 # The following versions are available on CPAN:
 
 ---
+version: 1.02
+date:    17 Oct 2002
+changes:
+    - Updated recommended version of Module::Signature
+    - Recommended Module::Signature programmatically.
+
+# Versions below here are available on BACKPAN
+# http://history.perl.org/backpan/authors/id/S/SP/SPOON/
+---
 version: 1.01
 date:    13 Oct 2002
 changes:
@@ -20,8 +29,3 @@ date:    12 Oct 2002
 changes:
     - Initial revision.
 
-
-# As this is the first release there are no versions that
-# are available on BACKPAN and not CPAN. But here's the URL
-# anyway:
-# http://history.perl.org/backpan/authors/id/S/SP/SPOON/
