@@ -1,13 +1,27 @@
 package Test::Signature;
 
+use 5.004;
+use strict;
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK );
+use Exporter;
+use Test::Builder;
+
+BEGIN {
+    $VERSION   = '1.10';
+    @ISA       = qw( Exporter );
+    @EXPORT    = qw( signature_ok );
+    @EXPORT_OK = qw( signature_force_ok );
+}
+
+my $test = Test::Builder->new();
+
 =head1 NAME
 
-Test::Signature - automate SIGNATURE testing.
+Test::Signature - Automated SIGNATURE testing
 
 =head1 SYNOPSIS
 
-    # This is actually the t/00signature.t
-    # file from this distribution.
+    # This is actually the t/0-signature.t file from this distribution.
     use Test::More tests => 1;
     use Test::Signature;
 
@@ -38,18 +52,6 @@ errors during transmission or packaging.
 
 =cut
 
-use strict;
-use Exporter;
-use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK );
-$VERSION = '1.06';
-@ISA = qw( Exporter );
-@EXPORT = qw( signature_ok );
-@EXPORT_OK = qw( signature_force_ok );
-
-use Test::Builder;
-
-my $test = Test::Builder->new();
-
 =head1 FUNCTIONS
 
 C<signature_ok> is exported by default. C<signature_force_ok> must be
@@ -75,34 +77,28 @@ as a failure. The default is C<0> meaning 'no'.
 =cut
 
 sub action_skip { $test->skip( $_[0] ) }
-sub action_ok   { $test->ok( 0, $_[0] ) }
+sub action_ok { $test->ok( 0, $_[0] ) }
 
-sub signature_ok
-{
+sub signature_ok {
     my $name  = shift || 'Valid signature';
     my $force = shift || 0;
     my $action = $force ? \&action_ok : \&action_skip;
-    SKIP: {
-	if ( !-s 'SIGNATURE' )
-	{
-	    $action->( "No SIGNATURE file found." );
-	}
-	elsif ( !eval { require Module::Signature; 1 } )
-	{
+  SKIP: {
+        if ( !-s 'SIGNATURE' ) {
+            $action->("No SIGNATURE file found.");
+        }
+        elsif ( !eval { require Module::Signature; 1 } ) {
             $action->(
-                "Next time around, consider installing Module::Signature, ".
-                "so you can verify the integrity of this distribution." );
-	}
-	elsif ( !eval { require Socket; Socket::inet_aton('pgp.mit.edu') })
-	{
-	    $action->( "Cannot connect to the keyserver." );
-	}
-	else
-	{
-	    $test->ok(
-		Module::Signature::verify() == Module::Signature::SIGNATURE_OK()
-		=> $name);
-	}
+                    "Next time around, consider installing Module::Signature, "
+                  . "so you can verify the integrity of this distribution." );
+        }
+        elsif ( !eval { require Socket; Socket::inet_aton('pgp.mit.edu') } ) {
+            $action->("Cannot connect to the keyserver.");
+        }
+        else {
+            $test->ok( Module::Signature::verify() ==
+                  Module::Signature::SIGNATURE_OK() => $name );
+        }
     }
 }
 
@@ -121,9 +117,8 @@ but is more readable.
 
 =cut
 
-sub signature_force_ok
-{
-    signature_ok( $_[0]||undef, 1);
+sub signature_force_ok {
+    signature_ok( $_[0] || undef, 1 );
 }
 
 1;
@@ -238,8 +233,8 @@ just email me (address below).
 
 =head2 Use with Module::Install
 
-C<Module::Install> is a funky new module to assist in the bundling of
-build prerequisite modules in packages. Well, among other things.
+C<Module::Install> is a module to assist in the bundling of build
+prerequisite modules in packages. Well, among other things.
 
 C<Test::Signature> is a perfect candidate for such a module. As it's a
 module aimed purely at those writing modules rather than those using
@@ -256,7 +251,7 @@ Make a test file (say, F<t/00sig.t>) that contains the following:
 
 In your F<Makefile.PL> (or F<Build.PL> if appropriate) add:
 
-    include( 'Test::Signature' );
+    include 'Test::Signature';
 
 And that's it! You don't have to specify it as a prerequisite or
 anything like that because C<Module::Install> will include it in your
@@ -267,30 +262,29 @@ C<Module::Install> strips out all this waffling POD.
 
 Arthur Bergman for suggesting the module.
 
-Autrijus Tang for writing C<Module::Signature>, and making
-some suggestions.
+Audrey Tang for writing L<Module::Signature>, and making some suggestions.
 
-Tels suggested testing network connectivity to Autrijus.  Autrijus added
-that to C<Module::Signature> 0.16 and I added it to this module (as of
-1.03).
+Tels suggested testing network connectivity to Audrey; Audrey added that
+to C<Module::Signature> 0.16 and I (Iain Truskett) added it to this module
+(as of 1.03).
 
 =head1 BUGS
 
 Please report bugs at E<lt>bug-test-signature@rt.cpan.orgE<gt>
 or via the web interface at L<http://rt.cpan.org>
 
+=head1 AUTHORS
+
+Audrey Tang E<lt>cpan@audreyt.orgE<gt>
+Original author: Iain Truskett E<lt>spoon@cpan.orgE<gt>, now passed away.
+
 =head1 LICENSE AND COPYRIGHT
 
-Copyright Iain Truskett, 2002-2003. All rights reserved.
+Copyright 2002, 2003 by Iain Truskett.
+Copyright 2003, 2007 by Audrey Tang E<lt>cpan@audreyt.orgE<gt>.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Iain Truskett E<lt>spoon@cpan.orgE<gt>
-
-Currently maintained by Autrijus Tang E<lt>autrijus@autrijus.orgE<gt>
 
 =head1 SEE ALSO
 

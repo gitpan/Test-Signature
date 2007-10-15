@@ -1,15 +1,20 @@
 # Change log for Test::Signature
 
-# All versions are available from http://perl.dellah.org/
-
-
 # The following versions are available on CPAN:
+---
+version: 1.10
+date:    16 Oct 2007
+changes:
+    - Taking over maintainence from Iain.
+    - Modernized the build infrastructure with Module::Install.
+    - Tidied up source code, test files, documentation, and this changelog.
+
 
 ---
 version: 1.06
 date:    19 Jan 2004
 changes:
-    - Taking over maintainence from Iain.
+    - Taken over maintainence from Iain.
 
 ---
 version: 1.05

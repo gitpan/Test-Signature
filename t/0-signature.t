@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
-use lib 'inc';
+
+use strict;
 use Test::More tests => 1;
 use Test::Signature;
 

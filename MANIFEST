@@ -1,15 +1,18 @@
-Artistic
-ChangeLog
 Changes
-COPYING
+inc/Module/Install.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/WriteAll.pm
 INSTALL
 lib/Test/Signature.pm
-LICENSE
 Makefile.PL
-MANIFEST
-MANIFEST.SKIP
+MANIFEST			This list of files
 META.yml
 README
 SIGNATURE
-t/00sig.t
-t/99pod.t
+t/0-signature.t
+t/9-pod.t

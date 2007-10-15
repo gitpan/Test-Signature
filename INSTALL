@@ -30,13 +30,8 @@ OBTAINING THE MODULE
 The latest release version of Test::Signature can be downloaded
 from any CPAN site:
 
-    http://www.cpan.org/modules/by-authors/id/S/SP/SPOON/
+    http://www.cpan.org/modules/by-authors/id/A/AU/AUDREYT/
     http://search.cpan.org/dist/Test-Signature/
-
-Interim and development versions may also be available
-from the author's web site:
-
-    http://perl.dellah.org/
 
 Test::Signature is distributed as a gzipped tar archive file:
 
